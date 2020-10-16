@@ -7,6 +7,17 @@ class OrgContentMaker extends React.Component {
     clickHandler = () => {
         this.setState({boosts: this.state.boosts + 1})
     }
+
+    componentDidMount = () => {
+      this.stopper = setInterval(() => {
+        this.setState((prevState) => {return {boosts: prevState.boosts + 1}});
+      } , 1000);
+    }
+
+    componentWillUnmount = () => {
+      clearInterval(this.stopper);
+    }
+
     render = () => {
       return (
         <div>
@@ -16,6 +27,7 @@ class OrgContentMaker extends React.Component {
             boosts: {this.state.boosts}
           </p>
           <button onClick={this.clickHandler}> Boost this NonProfit!</button>
+          <button onClick={this.props.deleteFunc}> Delete Nonprofit</button>
         </div>
       )
     }
