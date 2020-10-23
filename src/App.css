@@ -16,3 +16,69 @@
   color: #61dafb;
 }
 
+.Form {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.update-card {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.nonprofit-form {
+  width: 300px;
+  height: 20px;
+  padding: 5px;
+  margin: 10px;
+}
+
+.post-form {
+  width: 400px;
+  margin: 10px;
+  padding: 10px;
+  padding-bottom: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.post-card {
+  background-color: #dfe7ff;
+  position: relative;
+  border-radius: 5px;
+  max-width: 500px;
+  margin: 2em;
+  padding: 1em;
+}
+
+.header {
+  font-size: 30px;
+}
+
+.post-text {
+  padding: 20px;
+}
+
+.delete-button {
+  position:absolute;
+  top:0;
+  right:0;
+  margin: 10px;
+}
+
+.round-button {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+.update-form {
+  padding: 5px;
+}
+
+.update-button {
+  margin: 5px;
+}

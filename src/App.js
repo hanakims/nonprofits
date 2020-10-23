@@ -44,7 +44,7 @@ function App() {
     <div className="App">
         <div className="Form">
           <label>Nonprofit:</label>
-          <input 
+          <input class="nonprofit-form"
             type="text" 
             name="org" 
             onChange={(input) => {
@@ -52,27 +52,32 @@ function App() {
             }}
           />
           <label>Post:</label>
-          <input 
-            type="text" 
-            name="post" 
-            onChange={(input) => {
+          <textarea 
+            class="post-form" 
+            cols="40" 
+            rows="5"
+            onChange={(input) => { 
               setPost(input.target.value);
             }}
           />
 
-          <button onClick={submitPost}>add the nonprofit</button>
+          <button onClick={submitPost}>add the nonprofit post</button>
 
           {postList.map((x) => {
             return (
-              <div>
-                <div>Nonprofit: {x.org} | Post: {x.post}</div>
-                <button onClick={() => {(deletePost(x.org))}}>delete</button>
-                <input 
-                  type="text" 
-                  onChange={(input) => {setNewPost(input.target.value);
-                }}
-                />
-                <button onClick={() => {(updatePost(x.org))}}>update</button>
+              <div class="post-card">
+                <div class="header">{x.org}</div>
+                <div class="post-text">{x.post}</div>
+                <button class="delete-button round-button" onClick={() => {(deletePost(x.org))}}>X</button>
+                <div class="update-card">
+                  <input
+                    class="update-form"
+                    type="text" 
+                    onChange={(input) => {setNewPost(input.target.value);
+                  }}
+                  />
+                  <button class="update-button" onClick={() => {(updatePost(x.org))}}>update</button>
+                </div>
               </div>
             );
           })}
