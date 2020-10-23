@@ -18,13 +18,14 @@ function App() {
   }, []);
 
   const submitPost = () => {
+    console.log(postList);
     Axios.post("http://localhost:5000/api/insert", {
       org: org, 
-      post: post
+      post: post,
     }) ;
     setPostList([
         ...postList, 
-        {org: org, post: post},
+        {org: org, post: post}
       ]);
   }
 
@@ -35,7 +36,7 @@ function App() {
   const updatePost = (org) => {
     Axios.put('http://localhost:5000/api/update', {
       org: org, 
-      post: newPost
+      post: newPost,
     });
     setNewPost("");
   }
@@ -68,6 +69,7 @@ function App() {
               <div class="post-card">
                 <div class="header">{x.org}</div>
                 <div class="post-text">{x.post}</div>
+                <div class="timestamp">{x.date_updated}</div>
                 <button class="delete-button round-button" onClick={() => {(deletePost(x.org))}}>X</button>
                 <div class="update-card">
                   <input

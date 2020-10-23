@@ -55,7 +55,10 @@
 }
 
 .header {
+  margin-right: auto;
+  margin-left: auto;
   font-size: 30px;
+  max-width: 450px;
 }
 
 .post-text {
