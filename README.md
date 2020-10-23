@@ -1,4 +1,4 @@
-![demo](images/demo.png)
+![demo](images/demo-site.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
