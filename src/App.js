@@ -43,9 +43,16 @@ function App() {
 
   return (
     <div className="App">
+      <div className="nav">
+        <span className="title">Nonproft Network</span>
+      </div>
+      <div className="subheading">
+        <p className="desc">No fluff, real change!</p>
+      </div>
         <div className="Form">
           <label>Nonprofit:</label>
-          <input class="nonprofit-form"
+          <input 
+            className="nonprofit-form"
             type="text" 
             name="org" 
             onChange={(input) => {
@@ -54,7 +61,7 @@ function App() {
           />
           <label>Post:</label>
           <textarea 
-            class="post-form" 
+            className="post-form" 
             cols="40" 
             rows="5"
             onChange={(input) => { 
@@ -66,19 +73,19 @@ function App() {
 
           {postList.map((x) => {
             return (
-              <div class="post-card">
-                <div class="header">{x.org}</div>
-                <div class="post-text">{x.post}</div>
-                <div class="timestamp">{x.date_updated}</div>
-                <button class="delete-button round-button" onClick={() => {(deletePost(x.org))}}>X</button>
-                <div class="update-card">
+              <div className="post-card">
+                <div className="header">{x.org}</div>
+                <div className="post-text">{x.post}</div>
+                <div className="timestamp">{x.date_updated}</div>
+                <button className="delete-button round-button" onClick={() => {(deletePost(x.org))}}>X</button>
+                <div className="update-card">
                   <input
-                    class="update-form"
+                    className="update-form"
                     type="text" 
                     onChange={(input) => {setNewPost(input.target.value);
                   }}
                   />
-                  <button class="update-button" onClick={() => {(updatePost(x.org))}}>update</button>
+                  <button className="update-button" onClick={() => {(updatePost(x.org))}}>update</button>
                 </div>
               </div>
             );
@@ -90,47 +97,3 @@ function App() {
 }
 
 export default App;
-/*
-
-class App extends React.Component {
-  state = {
-    currentInput: "",
-    listOfOrgs: ["Red Cross", "Doctors Without Borders"]
-  }
-  inputHandler = (event) => {
-    this.setState({currentInput: event.target.value});
-  }
-  submitHandler = () => {
-    let newCopy = this.state.listOfOrgs;
-    newCopy.push(this.state.currentInput);
-    this.setState({listOfOrgs: newCopy});
-  }
-
-  deleteOrg = (index) => {
-    let newCopy = this.state.listOfOrgs;
-    newCopy.splice(index, 1);
-    this.setState({listOfOrgs: newCopy})
-  }
-
-  render = () => {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <p>
-            add a nonprofit
-          </p>
-          <input value={this.state.currentInput} onChange={this.inputHandler}/>
-          <button onClick={this.submitHandler}>add the nonprofit</button>
-          {
-            this.state.listOfOrgs.map((x, index) => {
-              return <OrgContentMaker name={x} key={x} deleteFunc={() => {this.deleteOrg(index)}}/>
-            })
-          }
-        </header>
-      </div>
-    );
-  }
-}
-
-export default App;
-*/
