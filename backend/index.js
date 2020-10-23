@@ -17,8 +17,16 @@ const db = mysql.createPool({
     host: "localhost",
     user: "root",
     password: "",
-    database: "orgs",
+    database: "orgs", 
 });
+
+db.getConnection(function(err, connection) {
+    if (err) {
+        return console.error('error: ' + err.message);
+      }
+    
+      console.log('Connected to the MySQL server.');
+  });
 
 app.get('/api/get', (req, res) => {
     const sqlSelect = "SELECT * FROM org_posts";
@@ -29,12 +37,13 @@ app.get('/api/get', (req, res) => {
 
 app.post('/api/insert', (req, res) => {
 
-    const org = req.body.orgs;
+    const org = req.body.org;
     const post = req.body.post;
 
     const sqlInsert = 
         "INSERT INTO org_posts (org, post) VALUES (?, ?)";
     db.query(sqlInsert, [org, post], (err, result) => {
+        if (err) console.log(err);
         console.log(result);
     })
 });
